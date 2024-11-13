@@ -10,5 +10,11 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
-  root 'users#index'
+  root "home#index"
+  resources :users
+  resources :recipes
+  resources :categories
+  
+  get 'search', to: 'recipes#search' # 文字検索
+  get 'image_search', to: 'recipes#image_search' # 画像類似検索
 end

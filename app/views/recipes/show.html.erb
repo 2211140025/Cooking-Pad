@@ -1,0 +1,6 @@
+<h1><%= @recipe.title %></h1>
+<p><%= @recipe.content %></p>
+<%= image_tag @recipe.image %>
+
+<%= link_to '検索結果に戻る', search_path(query: params[:query]) %>
+<%= link_to 'トップ画面に戻る', root_path %>

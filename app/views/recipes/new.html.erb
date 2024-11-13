@@ -1,0 +1,19 @@
+<!-- app/views/recipes/new.html.erb -->
+<h1>新規レシピ追加</h1>
+<%= form_with model: @recipe, local: true do |f| %>
+  <div>
+    <%= f.label :title, "見出し" %>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label :content, "内容" %>
+    <%= f.text_area :content %>
+  </div>
+  <div>
+    <%= f.label :image, "画像" %>
+    <%= f.file_field :image %>
+  </div>
+  <div>
+    <%= f.submit "追加" %>
+  </div>
+<% end %>

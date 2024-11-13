@@ -13,8 +13,14 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
   
-  def destoy
+  def destroy
     User.find(params[:user_id]).destroy
     redirect_to users_path
   end
+  
+  def show
+    @user = User.find(params[:id])
+    @recipes = @user.recipes
+  end
 end
+
