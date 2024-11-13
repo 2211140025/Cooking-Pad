@@ -1,0 +1,8 @@
+<!-- app/views/users/show.html.erb -->
+<h1><%= @user.name %>のマイページ</h1>
+<% @recipes.each do |recipe| %>
+  <h2><%= link_to recipe.title, recipe_path(recipe) %></h2>
+  <p><%= recipe.content %></p>
+  <%= link_to '編集', edit_recipe_path(recipe) %> |
+  <%= link_to '削除', recipe_path(recipe), method: :delete, data: { confirm: '本当に削除しますか？' } %>
+<% end %>
