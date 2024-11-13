@@ -1,0 +1,24 @@
+<h1>新規ユーザ登録</h1>
+
+<%= form_with model: @user, local: true do |form| %>
+  <div>
+    <%= form.label :uid, "ID" %>
+    <%= form.text_field :uid %>
+  </div>
+
+  <div>
+    <%= form.label :pwd, "パスワード" %>
+    <%= form.email_field :password %>
+  </div>
+  
+  <div>
+    <%= form.label :pwd_confirm, "パスワード確認" %>
+    <%= form.email_field :password_confirm, %>
+  </div>
+
+  <div>
+    <%= form.submit "登録" %>
+  </div>
+<% end %>
+
+<%= link_to 'ログイン画面に戻る', top_login_path %>
