@@ -1,22 +1,24 @@
 <h1>ログイン</h1>
 
-<%= form_with url: top_login_path, local: true do |form| %>
+<%= form_with url: '/top/login_form',method: :post, local: true do |form| %>
   <div>
-    <%= form.label :uid, "ID" %>
-    <%= form.text_field :uid %>
+    <%= form.label :user_id, "ID" %>
+    <%= form.text_field :user_id %>
   </div>
 
   <div>
-    <%= form.label :pwd, "パスワード" %>
-    <%= form.email_field :password %>
+    <%= form.label :user_pass, "パスワード" %>
+    <%= form.email_field :user_pass %>
   </div>
   
   <div>
-    <%= form.label :pwd_confirm, "パスワード確認" %>
-    <%= form.email_field :password_confirm, %>
+    <%= form.label :user_pass_confirm, "パスワード確認" %>
+    <%= form.email_field :user_pass_confirm %>
   </div>
 
   <div>
     <%= form.submit "ログイン" %>
   </div>
+    <p><%= link_to 'ユーザ登録', new_users_path %></p>
+
 <% end %>

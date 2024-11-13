@@ -1,19 +1,17 @@
 class TopController < ApplicationController
   def main
     if session[:login_uid]  
-        ##redirect_to
-    else
-        render "login"
+        redirect_to top_main_path
     end
   end
   
   def login
     user = User.find_by(user_id: params[:user_id])
-    if user and BCrypt::Password.new(user.pass_digest) == params[:user_pass]
+    if user and BCrypt::Password.new(user.user_pass) == params[:user_pass]
         session[:login_uid] = params[:user_id]
         redirect_to top_main_path
     else
-        render "error", status: 422
+      
     end
   end
   
