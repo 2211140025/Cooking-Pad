@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get 'top/main'
+  get 'top/logout'
+  post 'top/login'
   resource :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
