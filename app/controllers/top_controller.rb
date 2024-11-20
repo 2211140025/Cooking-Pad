@@ -5,11 +5,13 @@ class TopController < ApplicationController
     end
   end
   
-  def login
+  def login_form
     user = User.find_by(user_id: params[:user_id])
+    logger.debug('out_if')
     if user == params[:user_pass]
-        session[:login_uid] = params[:user_id]
-        redirect_to recipes_path
+      logger.debug('if')
+      session[:login_uid] = params[:user_id]
+      redirect_to recipes_path
     else
       redirect_to root_path
     end
