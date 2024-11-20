@@ -1,0 +1,9 @@
+<!-- app/views/home/index.html.erb -->
+<h1>Welcome to Cooking Pad</h1>
+<ul>
+  <li><%= link_to 'マイページ', user_path(current_user) %></li>
+  <li><%= link_to '新規レシピ追加', new_recipe_path %></li>
+  <li><%= link_to '文字検索', search_path %></li>
+  <li><%= link_to '画像類似検索', image_search_path %></li>
+  <li><%= link_to 'カテゴリ検索', categories_path %></li>
+</ul>
