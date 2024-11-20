@@ -10,7 +10,8 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root 'top#login_form'
-   
+  
+  get 'home/index' 
   resources :users
   resources :recipes
   resources :categories

@@ -1,7 +1,7 @@
 class TopController < ApplicationController
   def main
     if session[:login_uid]  
-        redirect_to recipes_path
+        redirect_to home_index_path
     end
   end
   
@@ -11,7 +11,7 @@ class TopController < ApplicationController
     if user == params[:user_pass]
       logger.debug('if')
       session[:login_uid] = params[:user_id]
-      redirect_to recipes_path
+      redirect_to home_index_path
     else
       redirect_to root_path
     end
