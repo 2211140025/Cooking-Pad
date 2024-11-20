@@ -8,17 +8,19 @@
 
   <div>
     <%= form.label :user_pass, "パスワード" %>
-    <%= form.email_field :user_pass %>
+    <%= form.text_field :user_pass %>
   </div>
   
   <div>
     <%= form.label :user_pass_confirm, "パスワード確認" %>
-    <%= form.email_field :user_pass_confirm %>
+    <%= form.text_field :user_pass_confirm %>
   </div>
 
   <div>
     <%= form.submit "ログイン" %>
   </div>
-    <p><%= link_to 'ユーザ登録', new_users_path %></p>
+    
 
 <% end %>
+<p><%= link_to 'ユーザ登録', new_users_path %></p>
+
