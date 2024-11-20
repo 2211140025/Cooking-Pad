@@ -1,16 +1,6 @@
-<h1>レシピ一覧</h1>
-
 <%= link_to '新規レシピ追加', new_recipe_path %>
-<%= link_to 'マイページ', user_path(current_user) %>
-<%= form_with(url: search_path, method: :get, local: true) do %>
-  <%= text_field_tag :query, params[:query], placeholder: "文字検索" %>
-  <%= submit_tag '検索' %>
-<% end %>
-
-<% @recipes.each do |recipe| %>
-  <div>
-    <%= image_tag recipe.image %>
-    <h2><%= link_to recipe.title, recipe_path(recipe) %></h2>
-    <p><%= recipe.content.truncate(100) %></p>
-  </div>
+<% if current_user %>
+  <%= link_to 'マイページ', user_path(current_user) %>
+<% else %>
+  <%= link_to 'ログイン', new_session_path %>
 <% end %>
