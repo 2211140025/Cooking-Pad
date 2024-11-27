@@ -2,6 +2,6 @@
 <% if current_user %>
   <%= link_to 'マイページ', user_path(current_user) %>
 <% else %>
-  <%= link_to 'ログイン', new_session_path %>
+  <%= link_to 'ログイン', root_path %>
 <% end %>
 <%= link_to 'ログアウト', top_logout_path %>

@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
+  resources :users
+  resources :recipes
+  resources :categories
   get 'top/logout'
   post 'top/login_form'
-  get 'top/main'
-  resources :sessions, only: [:new, :create, :destroy]
+#  get 'top/main'
+
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -12,9 +15,7 @@ Rails.application.routes.draw do
   root 'top#login_form'
   
   get 'home/index' 
-  resources :users
-  resources :recipes
-  resources :categories
+
   get 'search', to: 'recipes#search' # 文字検索
   get 'image_search', to: 'recipes#image_search' # 画像類似検索
 end

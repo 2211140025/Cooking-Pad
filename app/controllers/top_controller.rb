@@ -1,17 +1,19 @@
 class TopController < ApplicationController
-  def main
-    if session[:login_uid]  
-        redirect_to home_index_path
-    end
-  end
+# def main 
+#      if session[:login_uid]
+#           redirect_to home_index_path
+#      else
+#          redirect_to root_path
+#      end
+#   end
   
   def login_form
     user = User.find_by(user_id: params[:user_id])
     logger.debug('out_if')
     if user == params[:user_pass]
       logger.debug('if')
-      session[:login_uid] = params[:user_id]
-      redirect_to home_index_path
+#      session[:login_uid] = params[:user_id]
+#      redirect_to home_index_path
     else
       redirect_to root_path
     end
