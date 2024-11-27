@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
 
   # Defines the root path route ("/")
-  root 'top#login_form'
+  root 'top#main'
   
   get 'home/index' 
 
