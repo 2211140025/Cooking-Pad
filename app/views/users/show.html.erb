@@ -8,11 +8,10 @@
     <%= @user.user_pass %>
 </p>
 <p>以下レシピ</p>
-<!-- % @recipes.each do |recipe| %>  
-  <h2>%= link_to recipe.title, recipe_path(recipe) %></h2>
-  <p>%= recipe.content %></p>
-  %= link_to '編集', edit_recipe_path(recipe) %> |
-  %= link_to '削除', recipe_path(recipe), method: :delete, data: { confirm: '本当に削除しますか？' } %>
-% end %> -->
 
+<%= @recipes.each do |e| %>
+<%= link_to 'レシピ削除',user_pass(user), data: { turbo_method: :delete } %>
+<%= link_to 'レシピ編集',edit_recipe(e) %>
+<br>
+<% end %>    
 <%= link_to 'HOMEPAGE', home_index_path %>

@@ -20,7 +20,7 @@ class UsersController < ApplicationController
   
   def show
     @user = User.find(params[:id])
-#    @recipes = @user.recipes
+    @recipes = Recipe.where(user: params[:user])
   end
 end
 
