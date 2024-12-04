@@ -14,6 +14,17 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(recipe_params)
+    
+    # ユーザーがログインしているか確認
+    unless current_user
+      redirect_to login_path, alert: 'ログインしてください'
+      return
+    end
+  
+    # ユーザーを関連付ける
+    @recipe.user = current_user
+  
+    # レシピを保存
     if @recipe.save
       redirect_to @recipe, notice: 'レシピが追加されました。'
     else
@@ -47,6 +58,10 @@ class RecipesController < ApplicationController
     end
 
     def recipe_params
-      params.require(:recipe).permit(:title, :content, :image, :category)
+      params.require(:recipe).permit(
+        :title, :serving_size, :content, :tips, :image, :category_id,
+        ingredients_attributes: [:id, :name, :quantity, :_destroy],
+        steps_attributes: [:id, :description, :image, :_destroy]
+      )
     end
 end
