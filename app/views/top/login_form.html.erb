@@ -10,11 +10,6 @@
     <%= form.label :user_pass, "パスワード" %>
     <%= form.password_field :user_pass %>
   </div>
-  
-  <div>
-    <%= form.label :user_pass_confirm, "パスワード確認" %>
-    <%= form.password_field :user_pass_confirm %>
-  </div>
 
   <div>
     <%= form.submit "ログイン" %>
@@ -22,4 +17,6 @@
 
 <% end %>
 <p><%= link_to 'ユーザ登録', new_user_path %></p>
+
+
 
