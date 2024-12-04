@@ -10,7 +10,9 @@ class RecipesController < ApplicationController
 
   def new
     @recipe = Recipe.new
+    @recipe.steps.build  # 空のステップを追加
   end
+  
 
   def create
     @recipe = Recipe.new(recipe_params)

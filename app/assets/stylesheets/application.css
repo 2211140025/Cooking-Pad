@@ -1,3 +1,37 @@
+#steps_section {
+  margin-top: 20px;
+}
+
+#steps_container {
+  margin-bottom: 20px;
+}
+
+.step {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 15px;
+}
+
+.step h5 {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.step .form-group {
+  margin-bottom: 15px;
+}
+
+.step img {
+  max-width: 100%;
+  height: auto;
+  margin-top: 10px;
+}
+
+#add_step {
+  margin-top: 10px;
+}
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.

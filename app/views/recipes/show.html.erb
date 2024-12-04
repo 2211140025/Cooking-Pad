@@ -20,13 +20,13 @@
   <p><strong><%= ingredient.name %>:</strong> <%= ingredient.quantity %></p>
 <% end %>
 
-<!-- 作り方 -->
 <h2>作り方</h2>
-<% @recipe.steps.each do |step| %>
-  <div>
-    <p><strong>Step <%= step.id %>:</strong> <%= step.description %></p>
+<% @recipe.steps.each_with_index do |step, index| %>
+  <div class="step mb-3">
+    <h3>Step <%= index + 1 %></h3>
+    <p><%= step.description %></p>
     <% if step.image.attached? %>
-      <%= image_tag rails_blob_path(step.image, only_path: true) %>
+      <%= image_tag rails_blob_path(step.image, only_path: true), class: "img-fluid" %>
     <% else %>
       <p>作り方画像はありません</p>
     <% end %>

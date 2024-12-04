@@ -2,8 +2,14 @@
 
 <% @recipes.each do |recipe| %>
   <div>
-    <%= image_tag recipe.image %>
+    <% if recipe.image.attached? %>
+      <%= image_tag rails_blob_path(recipe.image, only_path: true) %>
+    <% else %>
+      <p>画像はありません</p>
+    <% end %>
+    
     <h2><%= link_to recipe.title, recipe_path(recipe) %></h2>
     <p><%= recipe.content %></p>
   </div>
 <% end %>
+

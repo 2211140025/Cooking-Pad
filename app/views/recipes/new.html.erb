@@ -47,16 +47,27 @@
   <!-- 作り方 -->
   <div id="steps_section">
     <h2>作り方</h2>
-    <div class="step">
-      <%= f.fields_for :steps do |step_fields| %>
-        <%= step_fields.label :description, "作り方" %>
-        <%= step_fields.text_area :description, placeholder: "作り方を入力してください", rows: 3, class: "form-control" %>
-        <%= step_fields.label :image, "画像" %>
-        <%= step_fields.file_field :image, class: "form-control" %>
-      <% end %>
+    <div id="steps_container">
+      <div class="step card mb-3">
+        <%= f.fields_for :steps do |step_fields| %>
+          <div class="card-body">
+            <h5 class="card-title">Step <%= f.object.id || '1' %></h5> <!-- Step番号を表示 -->
+            <div class="form-group">
+              <%= step_fields.label :description, "作り方" %>
+              <%= step_fields.text_area :description, placeholder: "作り方を入力してください", rows: 3, class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <%= step_fields.label :image, "画像" %>
+              <%= step_fields.file_field :image, class: "form-control" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
     </div>
-    <button type="button" id="add_step" class="btn btn-secondary mt-2">作り方を追加</button>
-  </div>
+  
+  <button type="button" id="add_step" class="btn btn-secondary mt-3">作り方を追加</button>
+</div>
+
 
   <!-- コツ・ポイント -->
   <div>
