@@ -1,0 +1,75 @@
+<% if @recipe.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@recipe.errors.count, "エラー") %>があります:</h2>
+    <ul>
+      <% @recipe.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_with model: @recipe, local: true do |f| %>
+  <!-- 見出し -->
+  <div>
+    <%= f.label :title, "見出し" %>
+    <%= f.text_field :title, placeholder: "レシピのタイトルを入力してください", class: "form-control" %>
+  </div>
+
+  <!-- カテゴリ -->
+  <div>
+    <%= f.label :category_id, "カテゴリ" %>
+    <%= f.collection_select :category_id, Category.all, :id, :name, prompt: "カテゴリを選択してください", class: "form-control" %>
+  </div>
+
+  <!-- 何人分 -->
+  <div>
+    <%= f.label :serving_size, "何人分" %>
+    <%= f.number_field :serving_size, placeholder: "人数を入力してください", min: 1, class: "form-control" %>
+  </div>
+
+  <!-- 材料 -->
+  <div id="ingredients_section">
+    <h2>材料</h2>
+    <div class="ingredient">
+      <%= f.fields_for :ingredients do |ingredient_fields| %>
+        <%= ingredient_fields.label :name, "食材名" %>
+        <%= ingredient_fields.text_field :name, placeholder: "食材名を入力してください", class: "form-control" %>
+        <%= ingredient_fields.label :quantity, "分量" %>
+        <%= ingredient_fields.text_field :quantity, placeholder: "分量を入力してください", class: "form-control" %>
+      <% end %>
+    </div>
+    <button type="button" id="add_ingredient" class="btn btn-secondary mt-2">材料を追加</button>
+  </div>
+
+  <!-- 作り方 -->
+  <div id="steps_section">
+    <h2>作り方</h2>
+    <div class="step">
+      <%= f.fields_for :steps do |step_fields| %>
+        <%= step_fields.label :description, "作り方" %>
+        <%= step_fields.text_area :description, placeholder: "作り方を入力してください", rows: 3, class: "form-control" %>
+        <%= step_fields.label :image, "画像" %>
+        <%= step_fields.file_field :image, class: "form-control" %>
+      <% end %>
+    </div>
+    <button type="button" id="add_step" class="btn btn-secondary mt-2">作り方を追加</button>
+  </div>
+
+  <!-- コツ・ポイント -->
+  <div>
+    <%= f.label :tips, "コツ・ポイント" %>
+    <%= f.text_area :tips, placeholder: "コツやポイントを入力してください", rows: 3, class: "form-control" %>
+  </div>
+
+  <!-- レシピ画像 -->
+  <div>
+    <%= f.label :image, "レシピ全体の画像" %>
+    <%= f.file_field :image, class: "form-control" %>
+  </div>
+  <!-- 提出ボタン -->
+  <div>
+    <%= f.submit "更新", class: "btn btn-primary mt-3" %>
+  </div>
+<% end %>
+

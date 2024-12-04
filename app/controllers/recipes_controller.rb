@@ -33,6 +33,7 @@ class RecipesController < ApplicationController
   end
 
   def edit
+    @recipe=Recipe.find(params[:id])
   end
 
   def update
@@ -49,7 +50,11 @@ class RecipesController < ApplicationController
   end
 
   def search
-    @recipes = Recipe.where("title LIKE ? OR content LIKE ?", "%#{params[:query]}%", "%#{params[:query]}%")
+    @recipes = Recipe.where("title LIKE ? OR content LIKE ?", "%#{params[:word]}%", "%#{params[:word]}%")
+  end
+  
+  def category_serch
+    @recipes = Recipe.where("category LiKE ?", "%#{params[:category]}%")
   end
 
   private

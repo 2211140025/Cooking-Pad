@@ -18,4 +18,5 @@ Rails.application.routes.draw do
 
   get 'search', to: 'recipes#search' # 文字検索
   get 'image_search', to: 'recipes#image_search' # 画像類似検索
+  get 'category_search',to: 'recipes#category_search'
 end
