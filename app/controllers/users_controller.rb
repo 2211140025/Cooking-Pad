@@ -10,17 +10,17 @@ class UsersController < ApplicationController
   def create
     u = User.new(user_id: params[:user][:user_id], user_pass: params[:user][:user_pass])
     u.save
-    redirect_to users_path
+    redirect_to root_path
   end
   
   def destroy
     User.find(params[:user_id]).destroy
-    redirect_to users_path
+    redirect_to root_path
   end
   
   def show
     @user = User.find(params[:id])
-    @recipes = Recipe.where(user: params[:user])
+    @recipes = Recipe.where(user_id: params[:id])
   end
 end
 
