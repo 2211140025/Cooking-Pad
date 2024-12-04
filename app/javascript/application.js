@@ -4,8 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const ingredientDiv = document.createElement("div");
     ingredientDiv.classList.add("ingredient");
     ingredientDiv.innerHTML = `
-      <input type="text" name="recipe[ingredients][][name]" placeholder="食材名を入力してください" class="form-control mt-2">
-      <input type="text" name="recipe[ingredients][][quantity]" placeholder="分量を入力してください" class="form-control mt-2">
+      <input type="text" name="recipe[ingredients_attributes][][name]" placeholder="食材名を入力してください" class="form-control mt-2">
+      <input type="text" name="recipe[ingredients_attributes][][quantity]" placeholder="分量を入力してください" class="form-control mt-2">
     `;
     document.getElementById("ingredients_section").appendChild(ingredientDiv);
   });
@@ -15,8 +15,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const stepDiv = document.createElement("div");
     stepDiv.classList.add("step");
     stepDiv.innerHTML = `
-      <textarea name="recipe[steps][]" placeholder="作り方を入力してください" rows="3" class="form-control mt-2"></textarea>
-      <input type="file" name="recipe[step_images][]" class="form-control mt-2">
+      <textarea name="recipe[steps_attributes][][description]" placeholder="作り方を入力してください" rows="3" class="form-control mt-2"></textarea>
+      <input type="file" name="recipe[steps_attributes][][image]" class="form-control mt-2">
     `;
     document.getElementById("steps_section").appendChild(stepDiv);
   });

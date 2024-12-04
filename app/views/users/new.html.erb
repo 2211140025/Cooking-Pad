@@ -1,24 +1,31 @@
-<h1>新規ユーザ登録</h1>
+<h1>新規登録</h1>
 
-<%= form_with model: @user, local: true do |form| %>
+<%= form_with(model: @user, local: true) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "エラー") %>が発生しました:</h2>
+      <ul>
+        <% @user.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <div>
-    <%= form.label :user_id, "ID" %>
-    <%= form.text_field :user_id %>
+    <%= f.label :user_id, 'ユーザーID' %>
+    <%= f.text_field :user_id %>
   </div>
 
   <div>
-    <%= form.label :user_pass, "パスワード" %>
-    <%= form.password_field :user_pass %>
-  </div>
-  
-  <div>
-    <%= form.label :user_pass_confirm, "パスワード確認" %>
-    <%= form.password_field :user_pass_confirm %>
+    <%= f.label :user_pass, 'パスワード' %>
+    <%= f.password_field :user_pass %>
   </div>
 
   <div>
-    <%= form.submit "登録" %>
+    <%= f.submit '登録' %>
   </div>
 <% end %>
+
 
 <p><%= link_to 'ログイン画面に戻る', root_path %></p>
