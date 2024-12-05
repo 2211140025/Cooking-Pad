@@ -8,10 +8,14 @@ class UsersController < ApplicationController
   end
   
   def create
-    u = User.new(user_id: params[:user][:user_id], user_pass: params[:user][:user_pass])
-    u.save
-    redirect_to root_path
     @user = User.new(user_params)
+  
+    # ユーザーIDの重複チェック
+    if User.exists?(user_id: @user.user_id)
+      @user.errors.add(:user_id, 'すでにそのIDは使われています')
+      render :new, status: :unprocessable_entity and return
+    end
+  
     if @user.save
       redirect_to login_path, notice: '登録が完了しました。'
     else
@@ -26,13 +30,12 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    User.find(params[:user_id]).destroy
+    User.find(params[:id]).destroy
     redirect_to root_path
   end
 
   def show
     @user = User.find(params[:id])
     @recipes = Recipe.where(user_id: params[:id])
-    # @recipes = @user.recipes
   end
 end

@@ -3,7 +3,7 @@
 <%= form_with(model: @user, local: true) do |f| %>
   <% if @user.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "エラー") %>が発生しました:</h2>
+      <h2>こちらのIDはもう使用されています:</h2>
       <ul>
         <% @user.errors.full_messages.each do |message| %>
           <li><%= message %></li>
