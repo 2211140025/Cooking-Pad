@@ -52,12 +52,24 @@ class RecipesController < ApplicationController
   end
 
   def search
-    @recipes = Recipe.where("title LIKE ? OR content LIKE ?", "%#{params[:word]}%", "%#{params[:word]}%")
+    @recipes = Recipe.all
+    if params[:word].present?
+      @recipes = @recipes.where("title LIKE ? OR content LIKE ?", "%#{params[:word]}%", "%#{params[:word]}%")
+    end
   end
   
-  def category_serch
-    @recipes = Recipe.where("category LiKE ?", "%#{params[:category]}%")
+  # app/controllers/recipes_controller.rb
+  def category_search
+    if params[:category_id].present?
+      @recipes = Recipe.where(category_id: params[:category_id])
+    else
+      @recipes = Recipe.all
+    end
+  
+    # 明示的にビューを指定する場合
+    render :category_search
   end
+
 
   private
     def set_recipe

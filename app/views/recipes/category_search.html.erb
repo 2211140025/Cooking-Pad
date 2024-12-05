@@ -1,0 +1,19 @@
+<!-- app/views/recipes/category_search.html.erb -->
+<h1>カテゴリ検索結果</h1>
+
+<% if @recipes.any? %>
+  <% @recipes.each do |recipe| %>
+    <div>
+      <% if recipe.image.attached? %>
+        <%= image_tag rails_blob_path(recipe.image, only_path: true) %>
+      <% else %>
+        <p>画像はありません</p>
+      <% end %>
+
+      <h2><%= link_to recipe.title, recipe_path(recipe) %></h2>
+      <p><%= recipe.content %></p>
+    </div>
+  <% end %>
+<% else %>
+  <p>該当するレシピはありません。</p>
+<% end %>
