@@ -32,6 +32,58 @@
   margin-top: 10px;
 }
 
+h1{
+  text-align: center
+}
+.pageTitle{
+  background-color: orange;
+  text-align: center;
+}
+
+h3{
+  text-align: center
+}
+
+nav ul{
+    list-style-type: none;
+    text-align: center;
+    padding: 20px;
+}
+nav li{
+    display: inline;    
+}
+
+
+
+.slide-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.slide-wrapper {
+  display: flex;
+  animation: slide-flow 20s infinite linear 1s both;
+}
+.slide{
+  width: 300px;
+  object-fit: cover;
+  border: 1px solid #ddd;
+}
+@keyframes slide-flow {
+     0% {transform: translateY(0);}
+ 100% {transform: translate(-100%);}
+}
+
+.media{
+  float: left;
+  margin: 30px
+  
+}
+.gohome{
+  clear: both 
+}
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.

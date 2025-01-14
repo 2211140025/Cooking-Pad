@@ -1,5 +1,6 @@
 <!-- app/views/users/show.html.erb -->
 <h1><%= @user.user_id %>のマイページ</h1>
+<h3>--ユーザー情報--</h3>
 <p>ID:
     <%= @user.user_id %>
 </p>
@@ -7,16 +8,22 @@
 <p>パスワード:
     <%= @user.user_pass %>
 </p>
-<p>以下レシピ</p>
+<h3>--レシピ一覧--</h3>
 
-<%= @recipes.each do |recipe| %>
-<div>
-    <%= image_tag recipe.image %>
+<% @recipes.each do |recipe| %>
+<div class="media">
+        <%= image_tag recipe.image %>
     <h2><%= link_to recipe.title, recipe_path(recipe) %></h2>
     <p><%= recipe.content %></p>
+
+
+    <%= link_to 'レシピ削除',user_path(recipe), data: { turbo_method: :delete } %>
+    <%= link_to 'レシピ編集',edit_recipe_path(recipe) %>
 </div>
-<%= link_to 'レシピ削除',user_path(recipe), data: { turbo_method: :delete } %>
-<%= link_to 'レシピ編集',edit_recipe_path(recipe) %>
 
 <% end %>    
-<%= link_to 'HOMEPAGE', home_index_path %>
+
+<div class="gohome">
+    <br>
+    <%= link_to 'HOMEPAGE', home_index_path %>
+</div>

@@ -1,19 +1,20 @@
 <h1><%= @recipe.title %></h1>
-
-<!-- レシピ画像 -->
-<% if @recipe.image.attached? %>
-  <h2>レシピ画像</h2>
-  <%= image_tag rails_blob_path(@recipe.image, only_path: true) %>
-<% else %>
-  <p>レシピ画像はありません</p>
-<% end %>
-
-<!-- カテゴリ -->
-<p><strong>カテゴリ:</strong> <%= @recipe.category.name if @recipe.category %></p>
-
-<!-- 何人分 -->
-<p><strong>何人分:</strong> <%= @recipe.serving_size %></p>
-
+<div class="media">
+  <!-- レシピ画像 -->
+  <% if @recipe.image.attached? %>
+    <h2>レシピ画像</h2>
+    <%= image_tag rails_blob_path(@recipe.image, only_path: true) %>
+  <% else %>
+    <p>レシピ画像はありません</p>
+  <% end %>
+  
+  <!-- カテゴリ -->
+  <p><strong>カテゴリ:</strong> <%= @recipe.category.name if @recipe.category %></p>
+  
+  <!-- 何人分 -->
+  <p><strong>何人分:</strong> <%= @recipe.serving_size %></p>
+</div>
+<br><br>
 <!-- 材料 -->
 <h2>材料</h2>
 <% @recipe.ingredients.each do |ingredient| %>
@@ -36,6 +37,7 @@
 <!-- コツ・ポイント -->
 <h2>コツ・ポイント</h2>
 <p><%= @recipe.tips %></p>
-
+<div class="gohome">
 <%= link_to '編集する', edit_recipe_path(@recipe) %>
 <%= link_to 'トップ画面に戻る', root_path %>
+</div>

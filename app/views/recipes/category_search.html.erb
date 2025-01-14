@@ -3,7 +3,7 @@
 
 <% if @recipes.any? %>
   <% @recipes.each do |recipe| %>
-    <div>
+    <div class="media">
       <% if recipe.image.attached? %>
         <%= image_tag rails_blob_path(recipe.image, only_path: true) %>
       <% else %>
