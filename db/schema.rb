@@ -85,9 +85,6 @@ ActiveRecord::Schema[7.1].define(version: 2025_01_15_091833) do
     t.index ["user_id"], name: "index_users_on_user_id", unique: true
   end
 
-  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "ingredients", "recipes"
   add_foreign_key "recipes", "users"
   add_foreign_key "steps", "recipes"
 end

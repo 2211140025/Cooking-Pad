@@ -7,4 +7,4 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
-Category.create([{ name: '和食' }, { name: '洋食' }, { name: '中華' }, { name: 'デザート' },{name: 'その他'}])
+#Category.create([{ name: '和食' }, { name: '洋食' }, { name: '中華' }, { name: 'デザート' },{name: 'その他'}])
