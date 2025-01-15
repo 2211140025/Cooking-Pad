@@ -23,3 +23,9 @@ test:
 production:
   <<: *default
   database: storage/production.sqlite3
+  encoding: unicode
+  pool: 5
+  database: cooking_pad
+ username: cooking_pad_user
+ password: <%= ENV['MYSITE_DATABASE_PASSWORD'] %>
+ url: <%= ENV['DATABASE_URL'] %>
