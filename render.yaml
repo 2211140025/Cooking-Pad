@@ -1,6 +1,6 @@
 databases:
 - name: Cooking-Pad
-databaseName: Cooking-Pad
+databaseName: Cooking Pad
 user: 2211140025
 plan: free
 services:
